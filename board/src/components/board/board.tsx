@@ -4,7 +4,7 @@ import {WidgetSelector} from '../data-point-widgets/widget-selector'
 import {BoardContainer} from './board-styles'
 
 type Props = {}
-export const Board: React.FC<Props> = ({}) => {
+export const Board: React.FC<Props> = () => {
   const widgets = useAppSelector((state) => state.widgets)
 
   return (

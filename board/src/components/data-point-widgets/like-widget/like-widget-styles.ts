@@ -1,8 +1,8 @@
-import {css} from 'styled-components'
+import styled from 'styled-components'
 import {Widget} from '../../../lib/features/widgets/widgets-slice'
 import {widgetBaseStyle} from '../widget-base-styles'
 
-export const likesWidgetStyle = css<{
+export const LikesWidgetContainer = styled.div<{
   positions: Widget['positions']
 }>`
   ${widgetBaseStyle}

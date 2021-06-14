@@ -1,15 +1,13 @@
-import styled, {css} from 'styled-components'
+import styled from 'styled-components'
 import {Widget} from '../../../lib/features/widgets/widgets-slice'
 import {widgetBaseStyle} from '../widget-base-styles'
 
-export const latestFollowersWidgetStyle = css<{
+export const LatestFollowersWidgetContainer = styled.div<{
   positions: Widget['positions']
 }>`
   ${widgetBaseStyle}
   background-color: ${(props) => props.theme.widgets.latestFollowers.plate};
-`
 
-export const LatestFollowersWidgetContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, 137px);
   grid-gap: 8px;
