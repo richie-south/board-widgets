@@ -30,6 +30,13 @@ export interface Theme {
 
       singleDataPointWidgetTheme?: SingleDataPointWidgetTheme
     }
+    latestComments: {
+      plate?: string
+      title: string
+      name: string
+      commment: string
+      singleDataPointWidgetTheme?: SingleDataPointWidgetTheme
+    }
   }
 
   baseWidgets: {
@@ -66,6 +73,17 @@ export const defaultTheme: Theme = {
       name: '#0d0f1c',
       itemPlate: 'white',
     },
+    latestComments: {
+      plate: 'black',
+      title: 'white',
+      name: '#818181',
+      commment: 'white',
+      singleDataPointWidgetTheme: {
+        dataPointColor: 'white',
+        title: 'white',
+        subtitle: 'white',
+      },
+    },
   },
 
   baseWidgets: {
@@ -100,6 +118,12 @@ export const darkTheme: Theme = {
       title: 'white',
       name: 'white',
       itemPlate: 'black',
+    },
+    latestComments: {
+      plate: 'black',
+      title: 'white',
+      name: 'white',
+      commment: 'white',
     },
   },
 

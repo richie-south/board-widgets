@@ -8,6 +8,13 @@ type LatestFollower = {
   name: string
 }
 
+type LatestComments = {
+  id: string
+  name: string
+  picture: string
+  comment: string
+}
+
 type Status = {
   fetch: 'success' | 'error' | 'loading'
   errorMessage?: string
@@ -20,6 +27,11 @@ export type DataPointState = {
   }
   latestFollowers: {
     followers: LatestFollower[]
+    status: Status
+  }
+  latestComments: {
+    comments: LatestComments[]
+    total: number
     status: Status
   }
 }
@@ -85,6 +97,56 @@ const initialState: DataPointState = {
       fetch: 'loading',
     },
   },
+  latestComments: {
+    comments: [
+      {
+        id: '0',
+        picture: 'https://picsum.photos/64',
+        name: 'Lisa',
+        comment:
+          'Lorem ipsum dolor sit amet consectetur adipiscing elit arcu nullam facilisis varius tempor.',
+      },
+      {
+        id: '1',
+        picture: 'https://picsum.photos/62',
+        name: 'Johanna',
+        comment:
+          'Lorem ipsum dolor sit amet consectetur adipiscing elit arcu nullam facilisis varius tempor.',
+      },
+      {
+        id: '2',
+        picture: 'https://picsum.photos/70',
+        name: 'Gustaf',
+        comment:
+          'Lorem ipsum dolor sit amet consectetur adipiscing elit arcu nullam facilisis varius tempor.',
+      },
+      {
+        id: '3',
+        picture: 'https://picsum.photos/63',
+        name: 'Maria',
+        comment:
+          'Lorem ipsum dolor sit amet consectetur adipiscing elit arcu nullam facilisis varius tempor.',
+      },
+      {
+        id: '4',
+        picture: 'https://picsum.photos/69',
+        name: 'Erik',
+        comment:
+          'Lorem ipsum dolor sit amet consectetur adipiscing elit arcu nullam facilisis varius tempor.',
+      },
+      {
+        id: '5',
+        picture: 'https://picsum.photos/68',
+        name: 'Robert',
+        comment:
+          'Lorem ipsum dolor sit amet consectetur adipiscing elit arcu nullam facilisis varius tempor.',
+      },
+    ],
+    total: 232,
+    status: {
+      fetch: 'loading',
+    },
+  },
 }
 
 export const dataPointSlice = createSlice({
@@ -104,9 +166,18 @@ export const dataPointSlice = createSlice({
     updateLatestFollowersStatus: (state, action: PayloadAction<Status>) => {
       state.latestFollowers.status = action.payload
     },
+
+    updateLatestComments: (state, action: PayloadAction<LatestComments[]>) => {
+      state.latestComments.comments = action.payload
+    },
+    updateLatestCommentsStatus: (state, action: PayloadAction<Status>) => {
+      state.latestComments.status = action.payload
+    },
   },
 })
 
 export const selectDataPointLikes = (state: RootState) => state.dataPoint.likes
 export const selectDataPointLatestFollowers = (state: RootState) =>
   state.dataPoint.latestFollowers
+export const selectDataPointLatestComments = (state: RootState) =>
+  state.dataPoint.latestComments

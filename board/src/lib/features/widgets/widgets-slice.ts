@@ -1,7 +1,7 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 import {DataPointStateKeys} from '../data-point/data-pont-slice'
 
-type WidgetSizeType =
+export type WidgetSizeType =
   | '1:1'
   | '1:2'
   | '1:4'
@@ -59,6 +59,32 @@ const initialState: WidgetsState = [
       columnEnd: 6,
       rowStart: 1,
       rowEnd: 1,
+    },
+  },
+
+  {
+    id: '2',
+    sizeType: '2:2',
+    contentType: 'latestComments',
+    availableSizes: ['1:1', '2:2'],
+    positions: {
+      columnStart: 1,
+      columnEnd: 3,
+      rowStart: 2,
+      rowEnd: 4,
+    },
+  },
+
+  {
+    id: '3',
+    sizeType: '1:1',
+    contentType: 'latestComments',
+    availableSizes: ['1:1', '2:2'],
+    positions: {
+      columnStart: 3,
+      columnEnd: 4,
+      rowStart: 2,
+      rowEnd: 2,
     },
   },
 ]
