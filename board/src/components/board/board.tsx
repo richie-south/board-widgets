@@ -1,6 +1,6 @@
 import React from 'react'
 import {useAppSelector} from '../../lib/hooks'
-import {WidgetSelector} from '../widgets/widget-selector'
+import {WidgetSelector} from '../data-point-widgets/widget-selector'
 import {BoardContainer} from './board-styles'
 
 type Props = {}
