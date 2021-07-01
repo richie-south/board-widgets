@@ -11,7 +11,6 @@ export const LatestFollowersWidgetContainer = styled.div<{
   display: grid;
   grid-template-columns: repeat(auto-fill, 137px);
   grid-gap: 8px;
-  overflow: hidden;
   height: 100%;
 `
 

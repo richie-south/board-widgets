@@ -74,12 +74,12 @@ export const defaultTheme: Theme = {
       itemPlate: 'white',
     },
     latestComments: {
-      plate: 'black',
+      plate: '#b57db1',
       title: 'white',
-      name: '#818181',
+      name: '#7e587c',
       commment: 'white',
       singleDataPointWidgetTheme: {
-        dataPointColor: 'white',
+        dataPointColor: '#7e587c',
         title: 'white',
         subtitle: 'white',
       },
@@ -124,6 +124,11 @@ export const darkTheme: Theme = {
       title: 'white',
       name: 'white',
       commment: 'white',
+      singleDataPointWidgetTheme: {
+        dataPointColor: 'white',
+        title: 'white',
+        subtitle: 'white',
+      },
     },
   },
 
@@ -136,8 +141,9 @@ export const darkTheme: Theme = {
   },
 }
 
+export type AvailableThemes = 'dark' | 'default'
 export const themes: {
-  [key: string]: Theme
+  [key in AvailableThemes]: Theme
 } = {
   dark: darkTheme,
   default: defaultTheme,
