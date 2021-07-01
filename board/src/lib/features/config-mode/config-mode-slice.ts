@@ -8,7 +8,7 @@ export const configModeSlice = createSlice({
   initialState,
   reducers: {
     toggleConfigMode: (state) => {
-      state = !state
+      return !state
     },
   },
 })
