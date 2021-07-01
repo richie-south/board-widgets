@@ -3,6 +3,7 @@ import {appThemeSlice} from './features/app-theme/app-theme-slice'
 import {widgetsSlice} from './features/widgets/widgets-slice'
 import {configModeSlice} from './features/config-mode/config-mode-slice'
 import {dataPointSlice} from './features/data-point/data-pont-slice'
+import {boardSizeSlice} from './features/board-size/board-size'
 // ...
 
 export const store = configureStore({
@@ -11,6 +12,7 @@ export const store = configureStore({
     dataPoint: dataPointSlice.reducer,
     theme: appThemeSlice.reducer,
     configMode: configModeSlice.reducer,
+    boardSize: boardSizeSlice.reducer,
   },
 })
 
