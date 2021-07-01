@@ -11,17 +11,21 @@ export type WidgetSizeType =
   | '4:4'
   | '4:6'
   | '6:6'
+
+export type WidgetPositions = {
+  x: number
+  y: number
+  width: number
+  height: number
+}
+
 export type Widget = {
   sizeType: WidgetSizeType
   id: string
   contentType: DataPointStateKeys
   availableSizes: WidgetSizeType[]
-  positions: {
-    columnStart: number
-    columnEnd: number
-    rowStart: number
-    rowEnd: number
-  }
+  positions: WidgetPositions
+  hidden: boolean
 }
 
 type WidgetsState = Widget[]
@@ -29,20 +33,75 @@ const initialState: WidgetsState = [
   {
     id: '0',
     sizeType: '1:1',
-    contentType: 'likes',
-    availableSizes: ['1:1', '1:2'],
+    contentType: 'latestComments',
+    availableSizes: ['1:1', '2:2'],
+    hidden: false,
     positions: {
-      columnStart: 1,
-      columnEnd: 1,
-      rowStart: 1,
-      rowEnd: 1,
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0,
+    },
+  },
+  {
+    id: '1',
+    sizeType: '1:2',
+    contentType: 'likes',
+    availableSizes: ['1:1', '1:2', '1:4', '2:2'],
+    hidden: false,
+    positions: {
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0,
     },
   },
 
   {
-    id: '1',
+    id: '3',
+    sizeType: '2:2',
+    contentType: 'likes',
+    availableSizes: ['1:1', '1:2', '1:4', '2:2'],
+    hidden: false,
+    positions: {
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0,
+    },
+  },
+
+  {
+    id: '4',
+    sizeType: '1:1',
+    contentType: 'likes',
+    availableSizes: ['1:1', '1:2', '1:4', '2:2'],
+    hidden: false,
+    positions: {
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0,
+    },
+  },
+  {
+    id: '6',
+    sizeType: '1:4',
+    contentType: 'likes',
+    availableSizes: ['1:1', '1:2', '1:4', '2:2'],
+    hidden: false,
+    positions: {
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0,
+    },
+  },
+  {
+    id: '5',
     sizeType: '1:4',
     contentType: 'latestFollowers',
+    hidden: false,
     availableSizes: [
       '1:1',
       '1:2',
@@ -55,49 +114,41 @@ const initialState: WidgetsState = [
       '6:6',
     ],
     positions: {
-      columnStart: 2,
-      columnEnd: 6,
-      rowStart: 1,
-      rowEnd: 1,
-    },
-  },
-
-  {
-    id: '2',
-    sizeType: '2:2',
-    contentType: 'latestComments',
-    availableSizes: ['1:1', '2:2'],
-    positions: {
-      columnStart: 1,
-      columnEnd: 3,
-      rowStart: 2,
-      rowEnd: 4,
-    },
-  },
-
-  {
-    id: '3',
-    sizeType: '1:1',
-    contentType: 'latestComments',
-    availableSizes: ['1:1', '2:2'],
-    positions: {
-      columnStart: 3,
-      columnEnd: 4,
-      rowStart: 2,
-      rowEnd: 2,
+      x: 0,
+      y: 0,
+      width: 0,
+      height: 0,
     },
   },
 ]
 
 export const widgetsSlice = createSlice({
   name: 'widgets',
-  initialState,
+  initialState: initialState,
   reducers: {
     addWidget: (state, action: PayloadAction<Widget>) => {
-      state.push(action.payload)
+      return [...state, action.payload]
     },
     removeWidgetById: (state, action: PayloadAction<string>) => {
-      state = state.filter((b) => b.id !== action.payload)
+      return state.filter((b) => b.id !== action.payload)
+    },
+    setWidgets: (state, action: PayloadAction<Widget[]>) => {
+      return action.payload
+    },
+    changeWidgetSize: (
+      state,
+      action: PayloadAction<{size: WidgetSizeType; id: string}>,
+    ) => {
+      return state.map((widget) => {
+        if (widget.id === action.payload.id) {
+          return {
+            ...widget,
+            sizeType: action.payload.size,
+          }
+        }
+
+        return widget
+      })
     },
   },
 })
