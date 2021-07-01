@@ -5,9 +5,11 @@ import {App} from './App'
 import reportWebVitals from './reportWebVitals'
 import {store} from './lib/store'
 import {Provider} from 'react-redux'
-
 import {TopLevelErrorBoundary} from './components/top-level-error-boundary'
 import {ThemeSwitcher} from './components/theme-controller'
+
+import 'bootstrap/dist/css/bootstrap.css'
+import './i18n/config'
 
 ReactDOM.render(
   <React.StrictMode>
