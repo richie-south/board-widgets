@@ -227,7 +227,5 @@ export function buildWidgetGrid(
     return _widgets
   }, [] as Widget[])
 
-  console.log('grid', grid)
-
   return builtWidgets
 }
