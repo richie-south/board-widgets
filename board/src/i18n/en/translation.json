@@ -1,0 +1,13 @@
+{
+  "latestCommentsWidget": {
+    "comments": "comments",
+    "instagram": "instagram"
+  },
+  "latestFollowersWidget": {
+    "title": "Latest followers"
+  },
+  "likeWidget": {
+    "title": "likes",
+    "subtitle": "instagram"
+  }
+}
