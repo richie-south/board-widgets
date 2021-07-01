@@ -1,8 +1,10 @@
 _this is a side project and does not reflect my code standard in work environments._
 
+## [Live at: board-widgets.richardsoderman.se/](https://board-widgets.richardsoderman.se/)
+
 # board-widgets
 
-Displays a board of widgets with different statistical data (intended for live overview).
+Displays a board of widgets with different statistical data (intended for live updated overview).
 Each widget supports multible different sizes and each size could represent data in a different way.
 e.g single data point for small widgets or graph of same data for larger widgets.
 
