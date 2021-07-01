@@ -1,7 +1,7 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import {selectDataPointLatestComments} from '../../../lib/features/data-point/data-pont-slice'
-import {Widget, widgetsSlice} from '../../../lib/features/widgets/widgets-slice'
+import {Widget} from '../../../lib/features/widgets/widgets-slice'
 import {SingleDataPointWidget} from '../../generic-widgets/single-data-point-widget/single-data-point-widget'
 import {
   LatestCommentsWidgetCommentsList,
