@@ -1,17 +1,14 @@
-import {createSlice} from '@reduxjs/toolkit'
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'
+import {AvailableThemes} from '../../../theme/theme'
 
-type AppThemeState = 'default' | 'dark'
-const initialState = 'default' as AppThemeState
+const initialState = 'default' as AvailableThemes
 
 export const appThemeSlice = createSlice({
   name: 'theme',
   initialState,
   reducers: {
-    setThemeDark: (state) => {
-      state = 'dark'
-    },
-    setThemeDefault: (state) => {
-      state = 'default'
+    setTheme: (state, action: PayloadAction<AvailableThemes>) => {
+      return action.payload
     },
   },
 })
